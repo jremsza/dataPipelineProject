@@ -1,0 +1,6 @@
+[submodule "pipelineExample"]
+	path = pipelineExample
+	url = https://github.com/code-heim/go_21_goroutines_pipeline.git
+[submodule "pipelineExampleFork"]
+	path = pipelineExampleFork
+	url = https://github.com/code-heim/go_21_goroutines_pipeline.git

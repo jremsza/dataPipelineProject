@@ -1,0 +1,5 @@
+$ ./goroutines_pipeline.exe
+Success!
+Success!
+Success!
+Success!

@@ -1,0 +1,15 @@
+$ go test
+PASS
+ok      goroutines_pipeline     8.033s
+
+The PASS indicates that all tests passed, and ok indicates that the test binary was built successfully.
+
+
+$ go test -bench=.
+goos: windows
+goarch: amd64
+pkg: goroutines_pipeline
+cpu: AMD Ryzen 7 5700U with Radeon Graphics
+BenchmarkPipeline-16               10000            501896 ns/op
+PASS
+ok      goroutines_pipeline     6.786s

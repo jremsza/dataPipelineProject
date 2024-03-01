@@ -63,6 +63,48 @@ func TestImageProcessingFunctions(t *testing.T) {
 	}
 }
 
+func BenchmarkLoadImage(b *testing.B) {
+	imagePaths := []string{"images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"}
+
+	b.ResetTimer()
+	for i := 0; i < b.N/10; i++ {
+		_ = loadImage(imagePaths)
+	}
+}
+
+func BenchmarkResize(b *testing.B) {
+	imagePaths := []string{"images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"}
+	channel1 := loadImage(imagePaths)
+
+	b.ResetTimer()
+	for i := 0; i < b.N/10; i++ {
+		_ = resize(channel1)
+	}
+}
+
+func BenchmarkConvertToGrayscale(b *testing.B) {
+	imagePaths := []string{"images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"}
+	channel1 := loadImage(imagePaths)
+	channel2 := resize(channel1)
+
+	b.ResetTimer()
+	for i := 0; i < b.N/10; i++ {
+		_ = convertToGrayscale(channel2)
+	}
+}
+
+func BenchmarkSaveImage(b *testing.B) {
+	imagePaths := []string{"images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"}
+	channel1 := loadImage(imagePaths)
+	channel2 := resize(channel1)
+	channel3 := convertToGrayscale(channel2)
+
+	b.ResetTimer()
+	for i := 0; i < b.N/10; i++ {
+		_ = saveImage(channel3)
+	}
+}
+
 func BenchmarkPipeline(b *testing.B) {
 	imagePaths := []string{"images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"}
 

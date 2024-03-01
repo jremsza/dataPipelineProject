@@ -4,6 +4,7 @@ import (
 	"fmt"
 	imageprocessing "goroutines_pipeline/image_processing"
 	"image"
+	"os"
 	"strings"
 )
 
@@ -80,11 +81,10 @@ func saveImage(input <-chan Job) <-chan bool {
 }
 
 func main() {
-
-	imagePaths := []string{"images/1.jpg",
-		"images/2.jpg",
-		"images/3.jpg",
-		"images/4.jpg",
+	imagePaths := os.Args[1:]
+	if len(imagePaths) == 0 {
+		fmt.Println("Usage: program_name image_path1 image_path2 ...")
+		return
 	}
 
 	channel1 := loadImage(imagePaths)
@@ -99,4 +99,5 @@ func main() {
 			fmt.Println("Failed!")
 		}
 	}
+	fmt.Println("Pipeline complete!")
 }

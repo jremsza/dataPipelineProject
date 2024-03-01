@@ -1,3 +1,10 @@
+The initial steps for this project require:
+Clone the GitHub repository for image processing. 
+Build and run the program in its original form.
+
+Before the changes to the code were made, the program was built using the
+go build command, and the output is shown below.
+
 $ ./goroutines_pipeline.exe
 Success!
 Success!

@@ -10,6 +10,22 @@ goos: windows
 goarch: amd64
 pkg: goroutines_pipeline
 cpu: AMD Ryzen 7 5700U with Radeon Graphics
-BenchmarkPipeline-16               10000            501896 ns/op
+BenchmarkLoadImage-16    	   10000	    125818 ns/op	  146937 B/op	       1 allocs/op
 PASS
-ok      goroutines_pipeline     6.786s
+ok  	goroutines_pipeline	2.040s
+
+BenchmarkResize-16    	12355560	        83.27 ns/op	      19 B/op	       0 allocs/op
+PASS
+ok  	goroutines_pipeline	4.405s
+
+BenchmarkConvertToGrayscale-16    	11312854	        92.17 ns/op	      20 B/op	       0 allocs/op
+PASS
+ok  	goroutines_pipeline	4.497s
+
+BenchmarkSaveImage-16    	10872574	        95.49 ns/op	      20 B/op	       0 allocs/op
+PASS
+ok  	goroutines_pipeline	4.618s
+
+BenchmarkPipeline-16    	   10000	   3703237 ns/op	 1773637 B/op	   11433 allocs/op
+PASS
+ok  	goroutines_pipeline	40.190s

@@ -31,14 +31,15 @@ func ReadImage(path string) (image.Image, error) {
 func WriteImage(path string, img image.Image) error {
 	outputFile, err := os.Create(path)
 	if err != nil {
-		return fmt.Errorf("error creating file: %w", err)
+		return fmt.Errorf("error writing image file: %w", err)
 	}
 	defer outputFile.Close()
 
 	// Encode the image to the new file
+	// Added error handling to EncodeImage
 	err = jpeg.Encode(outputFile, img, nil)
 	if err != nil {
-		panic(err)
+		return fmt.Errorf("error encoding image to file: %w", err)
 	}
 	return nil
 }

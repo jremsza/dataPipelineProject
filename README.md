@@ -16,7 +16,9 @@ In addition to adding error handling, code modifications were conducted in the m
 ### Running the Program
 In the terminal, navigate to the directory that contains go_routines_pipeline.exe
 
-**INPUT**: ./program.exe image_path/image
+**INPUT:**
+
+ ./program.exe image_path/image
 
 Where image_path is the path where the image is contained, and image is the name of the image file.
 
@@ -24,7 +26,7 @@ For this program it should look like this:
 
 `./goroutines_pipeline.exe images/1.jpg images/2.jpg images/3.jpg images/4.jpg`
 
-**OUTPUT**
+**OUTPUT:**
 
 Success!
 
